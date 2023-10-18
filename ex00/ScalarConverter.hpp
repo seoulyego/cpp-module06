@@ -2,51 +2,23 @@
 # define SCALARCONVERTER_HPP
 
 # include <string>
-# include <stdbool.h>
-
-enum e_type {
-	CHAR = 1,
-	INT = 2,
-	FLOAT = 4,
-	DOUBLE = 8,
-	IMPOSSIBLE,
-	NONDISPLAYABLE
-};
+# include <iostream>
 
 class ScalarConverter {
 	private:
-		std::string	_input;
-		int			_type;
-		char		_char;
-		int			_int;
-		float		_float;
-		double		_double;
-
-		bool		_isChar;
-		bool		_isInt;
-		bool		_isFloat;
-		bool		_isDouble;
-		bool		_isImpossible;
-		bool		_isNonDisplayable;
 		ScalarConverter();
-		ScalarConverter(ScalarConverter const& obj);
-		ScalarConverter & operator=(ScalarConverter const& obj);
+		ScalarConverter(const ScalarConverter& obj);
+		ScalarConverter& operator=(const ScalarConverter& obj);
 
 	public:
-		ScalarConverter(const std::string input);
 		~ScalarConverter();
 
-		static std::string		getInput();
-		static char			getChar();
-		static int				getInt();
-		static float			getFloat();
-		static double			getDouble();
-		static void			checkType();
-		static void			convert();
-		static void			printChar();
-		static void			printInt();
-		static void			printFloat();
-		static void			printDouble();
+		static void printChar(double value);
+		static void printInt(double value);
+		static void printFloat(double value);
+		static void printDouble(double value);
+
+		static void convert(const std::string& input);
 };
 
 #endif  // SCALARCONVERTER_HPP

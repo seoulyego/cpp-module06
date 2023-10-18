@@ -1,5 +1,5 @@
-NAME				:=	scalar_converter
-PROJECT_NAME		:=	SCALAR_CONVERTER
+NAME				:=	converter
+PROJECT_NAME		:=	CONVERTER
 
 OBJ_DIR				:=	./.obj/
 CACHE_DIR			:=	./.cache/
