@@ -1,7 +1,7 @@
 #include "Serializer.hpp"
 #include <iostream>
 
-int	main(void) {
+int main(void) {
 	Data *data1 = new Data();
 	data1->_data = "Hello World!";
 

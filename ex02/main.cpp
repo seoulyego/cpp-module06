@@ -1,7 +1,7 @@
 #include "Base.hpp"
 #include <iostream>
 
-int	main(void) {
+int main(void) {
 	Base *base = generate();
 
 	identify(base);
