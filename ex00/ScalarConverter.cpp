@@ -1,11 +1,14 @@
 #include "ScalarConverter.hpp"
+#include <cctype>
 #include <cmath>
 #include <iomanip>
+#include <limits>
 #include <stdexcept>
 
 static void printChar(double value) {
 	std::cout << "char: ";
-	if (std::isnan(value) || std::isinf(value)) {
+	if ((std::isnan(value) || std::isinf(value)) ||
+		(value > std::numeric_limits<char>::max() || value < std::numeric_limits<char>:: min())) {
 		std::cout << "impossible" << std::endl;
 	}
 	else {
@@ -63,18 +66,21 @@ static void printDouble(double value) {
 
 void ScalarConverter::convert(const std::string& input) {
 	double value;
-	if (input.length() == 1 && std::isprint(input[0])) {
+	if (input.length() == 1 &&
+		(std::isprint(input[0]) && !std::isdigit(input[0]))) {
 		value = static_cast<double>(input[0]);
 	}
 	else {
 		char *ptr = NULL;
 		value = std::strtod(input.c_str(), &ptr);
+
 		if (value == 0.0 &&
 			(input[0] != '-' && input[0] != '+' && !std::isdigit(input[0])) &&
 			(*ptr && std::strcmp(ptr, "f"))) {
 			throw std::runtime_error("Failed to convert");
 		}
 	}
+
 	printChar(value);
 	printInt(value);
 	printFloat(value);
