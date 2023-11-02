@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 	try {
 		ScalarConverter::convert(argv[1]);
 	} catch (std::exception& e) {
-		std::cout << "Fail to Convert" << std::endl;
+		std::cout << e.what() << std::endl;
 		return 1;
 	}
 	return 0;

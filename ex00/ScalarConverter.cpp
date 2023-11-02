@@ -1,8 +1,7 @@
 #include "ScalarConverter.hpp"
 #include <cmath>
 #include <iomanip>
-
-ScalarConverter::~ScalarConverter() {}
+#include <stdexcept>
 
 static void printChar(double value) {
 	std::cout << "char: ";
@@ -73,7 +72,7 @@ void ScalarConverter::convert(const std::string& input) {
 		if (value == 0.0 &&
 			(input[0] != '-' && input[0] != '+' && !std::isdigit(input[0])) &&
 			(*ptr && std::strcmp(ptr, "f"))) {
-			throw std::bad_alloc();
+			throw std::runtime_error("Failed to convert");
 		}
 	}
 	printChar(value);
