@@ -1,5 +1,5 @@
-NAME				:=	serialization
-PROJECT_NAME		:=	SERIALIZATION
+NAME				:=	serializer
+PROJECT_NAME		:=	SERIALIZER
 
 OBJ_DIR				:=	./.obj/
 CACHE_DIR			:=	./.cache/

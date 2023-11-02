@@ -4,7 +4,7 @@
 
 ScalarConverter::~ScalarConverter() {}
 
-void ScalarConverter::printChar(double value) {
+static void printChar(double value) {
 	std::cout << "char: ";
 	if (std::isnan(value) || std::isinf(value)) {
 		std::cout << "impossible" << std::endl;
@@ -20,7 +20,7 @@ void ScalarConverter::printChar(double value) {
 	}
 }
 
-void ScalarConverter::printInt(double value) {
+static void printInt(double value) {
 	std::cout << "int: ";
 	if ((std::isnan(value) || std::isinf(value)) ||
 		(value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min())) {
@@ -32,7 +32,7 @@ void ScalarConverter::printInt(double value) {
 	}
 }
 
-void ScalarConverter::printFloat(double value) {
+static void printFloat(double value) {
 	std::cout << "float: ";
 	float float_val = static_cast<float>(value);
 	if (std::isnan(value) || std::isinf(value)) {
@@ -47,7 +47,7 @@ void ScalarConverter::printFloat(double value) {
 	}
 }
 
-void ScalarConverter::printDouble(double value) {
+static void printDouble(double value) {
 	std::cout << "double: ";
 	double double_val = static_cast<double>(value);
 	if (std::isnan(value) || std::isinf(value)) {
@@ -64,7 +64,7 @@ void ScalarConverter::printDouble(double value) {
 
 void ScalarConverter::convert(const std::string& input) {
 	double value;
-	if (input.length() == 1 && isprint(input[0])) {
+	if (input.length() == 1 && std::isprint(input[0])) {
 		value = static_cast<double>(input[0]);
 	}
 	else {
@@ -74,7 +74,6 @@ void ScalarConverter::convert(const std::string& input) {
 			(input[0] != '-' && input[0] != '+' && !std::isdigit(input[0])) &&
 			(*ptr && std::strcmp(ptr, "f"))) {
 			throw std::bad_alloc();
-			return ;
 		}
 	}
 	printChar(value);

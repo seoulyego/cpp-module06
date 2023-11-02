@@ -36,6 +36,7 @@
 .vscode/
 .obj/
 .cache/
+
 converter
 serializer
 identify_type

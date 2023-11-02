@@ -6,19 +6,13 @@
 
 class ScalarConverter {
 	public:
-		~ScalarConverter();
-
-		static void printChar(double value);
-		static void printInt(double value);
-		static void printFloat(double value);
-		static void printDouble(double value);
-
 		static void convert(const std::string& input);
 
 	private:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& obj);
 		ScalarConverter& operator=(const ScalarConverter& obj);
+		~ScalarConverter();
 };
 
 #endif  // SCALARCONVERTER_HPP
