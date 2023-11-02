@@ -9,6 +9,7 @@
 Base::~Base() {}
 
 Base	*generate(void) {
+	std::srand(time(0));
 	switch (rand() % 3) {
 		case 0:
 			return new A;
